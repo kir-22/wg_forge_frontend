@@ -1,5 +1,5 @@
 import orders from '../data/orders.json';
-
+import getUserInfo from './getUsers';
 
 
 export default (function () {
@@ -24,7 +24,7 @@ let tbody = document.querySelector('tbody');
 orders.forEach(tr => {
  tr = `<tr id = order_${tr.id}>
  <td>${tr.transaction_id}</td>
- <td class= 'user_data'>${tr.user_id}</td>
+ <td class= 'user_data'>${getUserInfo(tr.user_id)}</td>
  <td>${formatDate(tr.created_at)}</td>
  <td>$${tr.total}</td>
  <td>${tr.card_number.substring(0,2)}********${tr.card_number.substr(tr.card_number.length - 4)}</td>
